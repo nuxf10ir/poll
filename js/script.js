@@ -68,10 +68,6 @@ $voteContainer.html(loaderTmpl());
 $.ajax({
         method: "GET",
         url: "https://voice.fd.ru/api/get-poll.php",
-        crossDomain: true,
-        xhrFields: {
-            withCredentials: true
-        }
     })
     .done(function(response) {
         $voteContainer.html(voteTmpl(response));
