@@ -67,14 +67,15 @@ $voteContainer.html(loaderTmpl());
 
 $.ajax({
         method: "GET",
-        url: "https://voice.fd.ru/api/get-poll.php"/*,
+        url: "https://voice.fd.ru/api/get-poll.php",
+        dataType: "json",
         crossDomain: true,
         xhrFields: {
             withCredentials: true
-        }*/
+        }
     })
     .done(function(response) {
-        console.log(response)
+        $voteContainer.html(voteTmpl(response));
     })
     .fail(function() {
         alert( "error" );
