@@ -1,0 +1,10 @@
+
+*.xml
+*.iml
+api/1
+api/config.ini
+api/config.php
+api/get-poll.php
+api/set-poll.php
+js/.DS_Store
+voicefdru.sql

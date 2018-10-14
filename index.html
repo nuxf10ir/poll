@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Голосование</title>
+    <link rel="stylesheet" type="text/css" href="css/loader.css">
+
+</head>
+<body>
+    <div class="fd-vote__wrapper">
+        <div id="fd-vote__content" class="fd-vote__content">
+
+        </div>
+
+    </div>
+
+
+    <script id="loader_tmpl" type="text/x-javascript-tmpl">
+        <div class="lds-css ng-scope">
+            <div class="lds-ripple">
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+
+    </script>
+
+    <script id="vote_tmpl" type="text/x-javascript-tmpl">
+
+        <div class="fd-vote__in">
+
+            <div class="fd-vote__question">
+                {{voteQuestion}}
+            </div>
+
+            <ul class="fd-vote__variants">
+                {[ _.each(variants, function(variant) { ]}
+                    <li class="fd-vote__variant">
+                        <a class="js-send-answer" data-answer="{{variant.answerId}}">
+                            {{variant.answerText}}
+                            &nbsp;
+                            [{{variant.votePercents}}%]
+                        </a>
+                    </li>
+                {[ }); ]}
+            </ul>
+
+        </div>
+
+    </script>
+
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/underscore.min.js"></script>
+    <script src="js/script.js"></script>
+
+</body>
+</html>
