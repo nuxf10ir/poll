@@ -17,7 +17,50 @@
     font-weight: 900;
     font-style: normal;
 }
+.fd-vote__content {
+    max-width: 500px;
+    margin: 20px auto;
+    background: #eee;
+    padding: 30px 20px;
+}
 
+.fd-vote__question {
+    font-size: 32px;
+    line-height: 44px;
+    font-weight: normal;
+    font-family: 'Berlingske Sans', Arial, Helvetica, sans-serif;
+    color: #FFFFFF;
+    background: url(../i/bg.png) no-repeat 0 0;
+    background-size: cover;
+    min-height: 270px;
+    padding: 20px;
+    text-shadow: 1px 1px #000000, 1px -1px #000000, -1px 1px #000000, -1px -1px #000000, 3px 3px 6px rgba(0,0,0,.5);
+}
+
+.fd-vote__variants {
+    padding: 0;
+    margin: 1em 0;
+}
+
+.fd-vote__variant {
+    display: block;
+
+    margin-bottom: 10px;
+}
+
+.fd-vote__variant a {
+    padding: 5px 12px;
+    border: 1px solid #000;
+    background: #FFFFFF;
+    display: block;
+    cursor: pointer;
+}
+
+.fd-vote__variant a:hover {
+    padding: 5px 12px;
+    border: 1px solid #000;
+    background: antiquewhite;
+}
 
 .cardgame {
     width: 821px;
@@ -26,7 +69,7 @@
 }
 
 .card {
-    font-family: 'Berlingske Sans', Arial, Helvetica, sans-serif;
+
 }
 
 .card-content {

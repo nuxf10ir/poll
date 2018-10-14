@@ -73,10 +73,10 @@ $.ajax({
         $voteContainer.html(voteTmpl(response));
     })
     .fail(function() {
-        alert( "error" );
+
     })
     .always(function() {
-        alert( "complete" );
+
     });
 
 
