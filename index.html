@@ -39,9 +39,29 @@
                     <li class="fd-vote__variant">
                         <a class="js-send-answer" data-answer="{{variant.answerId}}">
                             {{variant.answerText}}
-                            &nbsp;
-                            [{{variant.votePercents}}%]
                         </a>
+                    </li>
+                {[ }); ]}
+            </ul>
+
+        </div>
+
+    </script>
+
+    <script id="results_tmpl" type="text/x-javascript-tmpl">
+
+        <div class="fd-vote__in">
+
+            <div class="fd-vote__question">
+                {{pollQuestion}}
+            </div>
+
+            <ul class="fd-vote__results">
+                {[ _.each(results, function(result) { ]}
+                    <li class="fd-vote__result">
+                        <span>
+                            {{result.percents}}
+                        </span>
                     </li>
                 {[ }); ]}
             </ul>

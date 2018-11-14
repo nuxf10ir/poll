@@ -3,9 +3,11 @@ _.templateSettings = {
     interpolate: /\{\{([\s\S]+?)\}\}/g
 };
 
-$voteContainer = $("#fd-vote__content");
-loaderTmpl = _.template($("#loader_tmpl").html());
-voteTmpl = _.template($("#vote_tmpl").html());
+var $voteContainer = $("#fd-vote__content");
+var loaderTmpl = _.template($("#loader_tmpl").html());
+var voteTmpl = _.template($("#vote_tmpl").html());
+var resultTmpl = _.template($("#results_tmpl").html());
+var pollId = null;
 
 
 /*
@@ -71,6 +73,7 @@ $.ajax({
     })
     .done(function(response) {
         $voteContainer.html(voteTmpl(response));
+        pollId = response['pollId'] || null;
     })
     .fail(function() {
 
@@ -78,6 +81,33 @@ $.ajax({
     .always(function() {
 
     });
+
+$voteContainer.on('click', '.js-send-answer', function (event) {
+
+    var answerId = $(event.target).data('answer');
+
+    if (!pollId) {
+        return false;
+    }
+
+    $.ajax({
+        method: "POST",
+        url: "https://voice.fd.ru/api/set-poll.php",
+        data: {
+            answerId: answerId,
+            pollId: pollId
+        }
+    })
+        .done(function(response) {
+            console.log(response);
+        })
+        .fail(function() {
+
+        })
+        .always(function() {
+
+        });
+});
 
 
 
