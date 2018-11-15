@@ -9,7 +9,19 @@
 </head>
 <body>
     <div class="fd-vote__wrapper">
+        <div class="fd-vote__top"></div>
+        <div class="fd-vote__info">
+            Предлагаем Вам деловую игру!
+            Вы и другие подписчики журнала управляете международной компанией &laquo;Альфа&raquo;.
+            Задача &mdash; выполнить бюджет в условиях кризиса.
+            Все решения будут приниматься коллегиально.
+            Поэтому <strong>не забывайте голосовать каждые два дня за новое решения.</strong>
+        </div>
         <div id="fd-vote__content" class="fd-vote__content">
+
+
+        </div>
+        <div id="fd-vote__actions" class="fd-vote__actions">
 
         </div>
 
@@ -26,47 +38,60 @@
 
     </script>
 
-    <script id="vote_tmpl" type="text/x-javascript-tmpl">
-
-        <div class="fd-vote__in">
-
-            <div class="fd-vote__question">
-                {{pollQuestion}}
-            </div>
-
-            <ul class="fd-vote__variants">
-                {[ _.each(variants, function(variant) { ]}
-                    <li class="fd-vote__variant">
-                        <a class="js-send-answer" data-answer="{{variant.answerId}}">
-                            {{variant.answerText}}
-                        </a>
-                    </li>
-                {[ }); ]}
-            </ul>
-
+    <script id="vote-info_tmpl" type="text/x-javascript-tmpl">
+        <h2 class="fd-vote__title">
+            {{pollTitle}}
+        </h2>
+        <div class="fd-vote__text">
+            {{pollQuestion}}
         </div>
+    </script>
+
+    <script id="vote-actions_tmpl" type="text/x-javascript-tmpl">
+
+
+        <div class="fd-vote__sub">
+            {{pollSub}}
+        </div>
+
+        <ul class="fd-vote__variants">
+            {[ _.each(variants, function(variant) { ]}
+                <li class="fd-vote__variant">
+                    <a class="js-send-answer" data-answer="{{variant.answerId}}">
+                        {{variant.answerText}}
+                    </a>
+                </li>
+            {[ }); ]}
+        </ul>
 
     </script>
 
-    <script id="results_tmpl" type="text/x-javascript-tmpl">
+    <script id="vote-results_tmpl" type="text/x-javascript-tmpl">
 
-        <div class="fd-vote__in">
-
-            <div class="fd-vote__question">
-                {{pollQuestion}}
-            </div>
-
-            <ul class="fd-vote__results">
-                {[ _.each(results, function(result) { ]}
-                    <li class="fd-vote__result">
-                        <span>
-                            {{result.percents}}
-                        </span>
-                    </li>
-                {[ }); ]}
-            </ul>
-
+        <div class="fd-vote__sub">
+            Благодарим за участие!
         </div>
+
+
+        <ul class="fd-vote__results">
+            {[ _.each(results, function(result) { ]}
+                <li class="fd-vote__result">
+                    <span class="result-text">
+                        {{result.text}}
+                    </span>
+                    <span class="result-percents">
+                        <span class="percents-bar">
+                            <span class="fill" style="width: {{Math.round(parseInt(results.total, 10)/parseInt(result.count, 10))}}%"></span>
+                        </span>
+                        <span class="percents-text">
+                           {{result.count}}%
+                        </span>
+
+                    </span>
+                </li>
+            {[ }); ]}
+        </ul>
+
 
     </script>
 
