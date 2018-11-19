@@ -24,6 +24,10 @@
         <div id="fd-vote__actions" class="fd-vote__actions">
 
         </div>
+        <div id="fd-vote__countdown" class="fd-vote__countdown hidden">
+
+        </div>
+
 
     </div>
 
@@ -72,27 +76,37 @@
             Благодарим за участие!
         </div>
 
+        <table class="fd-vote__results">
 
-        <ul class="fd-vote__results">
-            {[ _.each(results, function(result) { ]}
-                <li class="fd-vote__result">
-                    <span class="result-text">
+            {[ _.each(results, function(result) {
+
+                var percents = Math.round(100*parseInt(result.count, 10)/parseInt(total, 10));
+
+            ]}
+
+                <tr class="fd-vote__result">
+                    <td class="result-text">
                         {{result.text}}
-                    </span>
-                    <span class="result-percents">
+                    </td>
+                    <td class="result-percents">
                         <span class="percents-bar">
-                            <span class="fill" style="width: {{Math.round(parseInt(results.total, 10)/parseInt(result.count, 10))}}%"></span>
+                            <span class="fill" style="width: {{percents}}%"></span>
+                            <span class="percents-text">
+                                {{percents}}%
+                            </span>
                         </span>
-                        <span class="percents-text">
-                           {{result.count}}%
-                        </span>
-
-                    </span>
-                </li>
+                    </td>
+                </tr>
             {[ }); ]}
-        </ul>
+        </table>
 
 
+    </script>
+
+    <script id="countdown_tmpl" type="text/x-javascript-tmpl">
+        <div class="fd-vote__sub">
+            Следующее голосование через {{days}} {{plural(days, daysTitles)}} {{hours}} {{plural(hours, hoursTitles)}} {{minutes}} {{plural(minutes, minutesTitles)}}.
+        </div>
     </script>
 
 
